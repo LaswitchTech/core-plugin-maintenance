@@ -1,13 +1,6 @@
-//
-//   Core Framework - Script file
-//
-//   @license    MIT (https://mit-license.org/)
-//   @author     Louis Ouellet <louis@laswitchtech.com>
-//
-
 const MaintenanceRequest = function(indicator){
     $.ajax({
-        url: '/endpoint.php/maintenance/status',
+        url: '/api/maintenance/status',
         type: 'GET',dataType: 'json',
         success: function(response) {
             if (response.status) {
