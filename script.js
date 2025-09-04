@@ -4,10 +4,10 @@ const MaintenanceRequest = function(indicator){
         type: 'GET',dataType: 'json',
         success: function(response) {
             if (response.status) {
-                indicator.show();
                 if(response.refresh){
                     window.location.reload();
                 }
+                indicator.show();
             } else {
                 indicator.hide();
             }
@@ -37,5 +37,7 @@ const MaintenanceStatus = function(){
 
 // Initialize the maintenance status check
 $( document ).ready(function() {
-    MaintenanceStatus();
+    if(!MAINTENANCE_MODE){
+        MaintenanceStatus();
+    }
 });
